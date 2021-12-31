@@ -12,7 +12,7 @@ Here are some specs of the Picoclick C3 and the C3T:
 
 
 Function | GPIO C3T | GPIO C3 | Mode
--------- | -------- | --------
+-------- | -------- | -------- | --------
 WS2812 Din | GPIO6 | GPIOX | Output
 Latch* | GPIO3 | GPIOX | Output
 Button | GPIO5 | GPIOX | Input
