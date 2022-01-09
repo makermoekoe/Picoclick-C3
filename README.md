@@ -1,14 +1,17 @@
 # Picoclick-C3
 
+**This page is a work in progress!**
+
 The Picoclick C3 as well as its little brother (the C3T, T = tiny) are the successors of the well known [Picoclick](https://github.com/makermoekoe/Picoclick). The name is related to its new processor: the [ESP32-C3](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf) single core RISC-V 160MHz CPU.
 
 The Picoclick C3T is a tiny WiFi and BLE IoT button for several applications. Originally designed for smart home things, the Picoclick can also be used as an actuator for IFTTT automations or as an MQTT device. It is based on the single core ESP32-C3 RISC-V processor and therefore comes with tons of useful features. With dimensions of only 10.5mm by 18mm the C3T not only the smallest one in the family of the Picoclicks, it is also the smallest device I have created so far.
 
 As the C3 is in development at the moment, most of the files are related to the C3T so far.
 
-Here are some specs of the Picoclick C3 and the C3T:
-- Dimensions are 18.0×20.0mm for the C3 and 10.5x18.0mm for the C3T
-- Ultra low stand-by current due to latching circuit (no deep sleep)
+Here are some specs of the Picoclick C3T:
+- Dimensions are only 10.5x18.0mm
+- Ultra low standby current due to latching circuit (no deep sleep)
+- Single button - single LED interface
 
 ## GPIOs
 
@@ -34,3 +37,5 @@ Things I have done so far:
 - Enable *Skip image validation from power on* (in Bootloader config)
 
 These points result in a boot up time of around 68ms which is almost quite fantastic. The test I've done so far were quite sufficient. If it is possible to make it even faster or if you have other ideas which could lead in the right direction then please let me know!
+
+## Power consumption
