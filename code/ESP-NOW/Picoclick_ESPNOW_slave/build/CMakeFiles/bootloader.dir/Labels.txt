@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/Users/fhmk/Documents/PlatformIO/Projects/ESP32_IDF_Test/build/CMakeFiles/bootloader
+/Users/fhmk/Documents/PlatformIO/Projects/ESP32_IDF_Test/build/CMakeFiles/bootloader.rule
+/Users/fhmk/Documents/PlatformIO/Projects/ESP32_IDF_Test/build/CMakeFiles/bootloader-complete.rule
+/Users/fhmk/Documents/PlatformIO/Projects/ESP32_IDF_Test/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/Users/fhmk/Documents/PlatformIO/Projects/ESP32_IDF_Test/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/Users/fhmk/Documents/PlatformIO/Projects/ESP32_IDF_Test/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/Users/fhmk/Documents/PlatformIO/Projects/ESP32_IDF_Test/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/Users/fhmk/Documents/PlatformIO/Projects/ESP32_IDF_Test/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/Users/fhmk/Documents/PlatformIO/Projects/ESP32_IDF_Test/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/Users/fhmk/Documents/PlatformIO/Projects/ESP32_IDF_Test/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
