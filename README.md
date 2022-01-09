@@ -8,12 +8,15 @@ The Picoclick C3 as well as its little brother (the C3T, T = tiny) are the succe
 
 The Picoclick C3T is a tiny WiFi and BLE IoT button for several applications. Originally designed for smart home things, the Picoclick can also be used as an actuator for IFTTT automations or as an MQTT device. It is based on the single core ESP32-C3 RISC-V processor and therefore comes with tons of useful features. With dimensions of only 10.5mm by 18mm the C3T not only the smallest one in the family of the Picoclicks, it is also the smallest device I have created so far.
 
+The [Youtube video](https://www.youtube.com/watch?v=t-50w3RsUlg) shows the assembly and soldering process, the optimization of the boot up time, the power measurements as well as some useful applications of the Picoclick.
+
 As the C3 is in development at the moment, most of the files are related to the C3T so far.
 
 Here are some specs of the Picoclick C3T:
-- Dimensions are only 10.5x18.0mm
-- Ultra low standby current due to latching circuit (no deep sleep)
-- Single button - single LED interface
+- Dimensions are only 10.5x18mm
+- Ultra low standby current due to latching circuit (no sleep mode needed)
+- Single button & LED interface (WS2812 RGB LED)
+- USB Type-C for charging the battery and flashing the ESP32-C3
 
 ## GPIOs
 
@@ -24,6 +27,8 @@ Latch* | GPIO3 | GPIOX | Output
 Button | GPIO5 | GPIOX | Input
 Charge Stat. | GPIO1  | GPIOX | Input
 Bat Voltage | GPIO4 | GPIOX | Input
+
+*Enabling the LDO can be done by pressing the button of the device or turning the latch high. In most use cases, the latch GPIO should be turned on as the first task of the Picoclick. Once the task is completed the device can be powered off by turning to the latch off (e.g. pulling in low).
 
 
 ## Speed up boot process
