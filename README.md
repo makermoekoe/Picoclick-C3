@@ -39,3 +39,22 @@ Things I have done so far:
 These points result in a boot up time of around 68ms which is almost quite fantastic. The test I've done so far were quite sufficient. If it is possible to make it even faster or if you have other ideas which could lead in the right direction then please let me know!
 
 ## Power consumption
+
+These power measurements are done with the Otii Arc power analyzer and its dedicated software. The average and peak current can be seen in the top right corner and is based on the selected frame in the current graph.
+The Picoclick C3T is used as an ESP-NOW slave in this case, which is probably the fastest solution of any wireless connection.
+
+A complete Picoclick task will look like this, whereby the LED part in the end is the longest part. The whole task took about 1,7 seconds, but the transmission itself is completed after around 200ms. The other part is with disabled WiFi and only used to do some visualizations with the LED. Overall average current is below 28mA.
+
+<img src="docs/pc3t_pc_espnow_complete.png" width="450px"></a>
+
+The ESP-NOW package is sent in the first 200ms. Average current is 73mA here.
+
+<img src="docs/pc3t_pc_espnow_transmission.png" width="450px"></a>
+
+As already said, the rest is just visualization stuff which will use 22mA of current in average.
+
+<img src="docs/pc3t_pc_espnow_ledonly_wifioff.png" width="450px"></a>
+
+Probably the most interesting part is the standby current, because it's the most used state of the Picoclick. As the device doesn't use any sleep mode, we're getting as low as 3µA in this state.
+
+<img src="docs/pc3t_pc_espnow_standby.png" width="450px"></a>
