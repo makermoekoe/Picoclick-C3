@@ -62,6 +62,6 @@ As already said, the rest is just visualization stuff which will use 22mA of cur
 
 <img src="docs/pc3t_pc_espnow_ledonly_wifioff.png" width="450px"></a>
 
-Probably the most interesting part is the standby current, because it's the most used state of the Picoclick. As the device doesn't use any sleep mode, we're getting as low as 3µA in this state. These are only related to the battery monitoring feature. As the voltage divider between ```Vbat```and ```GND```is ```1MOhm + 250kOhm = 1.25MOhm``` the current flow through it is about 3µA.
+Probably the most interesting part is the standby current, because it's the most used state of the Picoclick. As the device doesn't use any sleep mode, we're getting as low as 3µA in this state. This is only related to the battery monitoring feature. As the voltage divider between ```Vbat``` and ```GND``` is ```1MOhm + 250kOhm = 1.25MOhm``` the current flow through it is about 3µA.
 
 <img src="docs/pc3t_pc_espnow_standby.png" width="450px"></a>
