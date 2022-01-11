@@ -28,7 +28,7 @@ Button | GPIO5 | GPIOX | Input
 Charge Stat. | GPIO1  | GPIOX | Input
 Bat Voltage | GPIO4 | GPIOX | Input
 
-*Enabling the LDO can be done by pressing the button of the device or turning the latch high. In most use cases, the latch GPIO should be turned on as the first task of the Picoclick. Once the task is completed the device can be powered off by turning to the latch off (e.g. pulling in low).
+*Enabling the LDO can be done by pressing the button of the device or turning the latch high. In most use cases, the latch GPIO should be turned on as the first task of the Picoclick. Once the task is completed the device can be powered off by turning to the latch off (e.g. pulling it low).
 
 
 ## Speed up boot process
@@ -43,7 +43,7 @@ Things I have done so far:
 - Set *Bootloader log verbosity* from *Info* to *Warning* (in Bootloader config)
 - Enable *Skip image validation from power on* (in Bootloader config)
 
-These points result in a boot up time of around 68ms which is almost quite fantastic. The test I've done so far were quite sufficient. If it is possible to make it even faster or if you have other ideas which could lead in the right direction then please let me know!
+These points result in a boot up time of around 68ms which is almost quite fantastic. The test I've done so far were quite sufficient. If it is possible to make it even faster or if you have other ideas which could lead into the right direction then please let me know!
 
 ## Power consumption
 
@@ -62,6 +62,6 @@ As already said, the rest is just visualization stuff which will use 22mA of cur
 
 <img src="docs/pc3t_pc_espnow_ledonly_wifioff.png" width="450px"></a>
 
-Probably the most interesting part is the standby current, because it's the most used state of the Picoclick. As the device doesn't use any sleep mode, we're getting as low as 3µA in this state.
+Probably the most interesting part is the standby current, because it's the most used state of the Picoclick. As the device doesn't use any sleep mode, we're getting as low as 3µA in this state. These are only related to the battery monitoring feature. As the voltage divider between ```Vbat```and ```GND```is ```1MOhm + 250kOhm = 1.25MOhm``` the current flow through it is about 3µA.
 
 <img src="docs/pc3t_pc_espnow_standby.png" width="450px"></a>
