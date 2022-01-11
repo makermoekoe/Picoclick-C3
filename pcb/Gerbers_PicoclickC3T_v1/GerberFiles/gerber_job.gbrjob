@@ -1,0 +1,24 @@
+{
+    "Header": {
+        "Comment": "All values are metric (mm)",
+        "CreationDate": "2022-01-11T08:06:42Z",
+        "GenerationSoftware": {
+            "Application": "EAGLE",
+            "Vendor": "Autodesk",
+            "Version": "9.6.2"
+        },
+        "Part": "Single"
+    },
+    "Overall": {
+        "BoardThickness": 0.77,
+        "LayerNumber": 4,
+        "Name": {
+            "ProjectId": "picoclick_v3_small"
+        },
+        "Owner": "Moritz Koenig <moritz.koenig@iml.fraunhofer.de>",
+        "Size": {
+            "X": 18,
+            "Y": 10.5
+        }
+    }
+}

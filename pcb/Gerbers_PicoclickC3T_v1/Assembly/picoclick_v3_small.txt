@@ -1,0 +1,24 @@
+Stückliste exportiert aus /Volumes/home/Eagle/2021.10.26_Picoclick_v3/picoclick_v3_small.sch am 11.01.22 09:06
+
+Qty Value             Device                Package           Parts               Description         POPULARITY
+1    BRCL4054BME      MCP73831_SOT23_5      SOT23-5           U1                                                
+1   0                 R-EU-0402-WOKEEPOUT   R0402             F2                                                
+2   0,1µ              C-EU-0402-WOKEEPOUT_S C0402_S           C8, C9                                            
+4   10k               R-EU-0402-WOKEEPOUT   R0402             R4, R7, R10, R11                                  
+2   10p               C-EU-0402-WOKEEPOUT_S C0402_S           C20, C21                                          
+1   10µ               C-EU-0402-WOKEEPOUT_S C0402_S           C7                                                
+2   1M                R-EU-0402-WOKEEPOUT   R0402             R/1, R3                                           
+2   1k                R-EU-0402-WOKEEPOUT   R0402             R1, R2                                            
+5   1µ                C-EU-0402-WOKEEPOUT_S C0402_S           C1, C2, C3, C4, C13                               
+1   250k              R-EU-0402-WOKEEPOUT   R0402             R/2                                               
+2   4148              DIODE-SOD523          SOD523            D1, D2              DIODE               3         
+1   47.5k             R-EU-0402-WOKEEPOUT   R0402             R5                                                
+2   5.1k              R-EU-0402-WOKEEPOUT   R0402             R12, R13                                          
+1   ANT3216LL00R2400A ANT3216LL00R2400A     ANT3216LL00R2400A RF                                                
+1   BUTTON_ST-1187-3  BUTTON_ST-1187-3      BUTTON_ST-1187-3  U$1                                               
+1   ESP32_C3_QFN32    ESP32_C3_QFN32        QFN32             ESP1                                              
+1   MIC5504           MIC5504               TDFN4             U2                                                
+2   TP/SP-1.5X1.0     TP/SP-1.5X1.0         SOLDERPAD_1.5X1.0 BAT+, BAT-          Solderpads/Testpads           
+1   USB_C_C393939     USB_C_C393939         USBC_C393939      USB-C                                             
+1   WS2812_2020       WS2812_2020           WS2812_2020       L1                                                
+1   XTAL_2016         XTAL_2016             XTYL_2016         X1                                                

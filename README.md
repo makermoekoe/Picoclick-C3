@@ -65,3 +65,15 @@ As already said, the rest is just visualization stuff which will use 22mA of cur
 Probably the most interesting part is the standby current, because it's the most used state of the Picoclick. As the device doesn't use any sleep mode, we're getting as low as 3µA in this state. This is only related to the battery monitoring feature. As the voltage divider between ```Vbat``` and ```GND``` is ```1MOhm + 250kOhm = 1.25MOhm``` the current flow through it is about 3µA.
 
 <img src="docs/pc3t_pc_espnow_standby.png" width="450px"></a>
+
+### Battery for the click
+
+The optimal battery, which is shown in the picture below, is a 301012 LiPo battery (3.0mm thick, 10mm width, 12mm length). Nevertheless you can use whatever single cell LiPo battery you want. Charging current is set to 20mA, to be used with those 20-30mAh batteries. For larger capacity batteries the battery will - of course - take longer to charge. For 20-30mAh batteries charging time is about 1h - 1,5h.
+
+Below are some links for those tiny batteries (no sponsor, no affiliate, just for info):
+[Aliexpress 301012](https://de.aliexpress.com/item/1005003644834180.html)
+[Aliexpress 401012](https://de.aliexpress.com/item/32794940086.html)
+[eBay 301012](https://www.ebay.com/itm/333907143841)
+
+
+<img src="docs/pc3t_battery.JPG" width="450px"></a>
