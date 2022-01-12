@@ -68,7 +68,7 @@ Probably the most interesting part is the standby current, because it's the most
 
 ### Battery for the click
 
-The optimal battery, which is shown in the picture below, is a 301012 LiPo battery (3.0mm thick, 10mm width, 12mm length). Nevertheless you can use whatever single cell LiPo battery you want. Charging current is set to 20mA, to be used with those 20-30mAh batteries. For larger capacity batteries the battery will - of course - take longer to charge. For 20-30mAh batteries charging time is about 1h - 1,5h.
+The optimal battery, which is shown in the picture below, is a 301012 LiPo battery (3.0mm thick, 10mm width, 12mm length). Nevertheless you can use whatever single cell LiPo battery you want. Charging current is set to 20mA, to be used with those 20-30mAh batteries. For larger capacity batteries the battery charging time will - of course - increase. For 20-30mAh charging time is about 1h - 1,5h.
 
 Below are some links for those tiny batteries (no sponsor, no affiliate, just for info):
 
