@@ -18,6 +18,8 @@ Here are some specs of the Picoclick C3T:
 - Single button & LED interface (WS2812 RGB LED)
 - USB Type-C for charging the battery and flashing the ESP32-C3
 
+<a href="https://www.tindie.com/stores/makermoekoe/?ref=offsite_badges&utm_source=sellers_makermoekoe&utm_medium=badges&utm_campaign=badge_large"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-larges.png" alt="I sell on Tindie" width="200" height="104"></a>
+
 ## GPIOs
 
 Function | GPIO C3T | GPIO C3 | Mode
