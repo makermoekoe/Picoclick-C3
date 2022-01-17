@@ -32,6 +32,10 @@ Bat Voltage | GPIO4 | GPIOX | Input
 
 *Enabling the LDO can be done by pressing the button of the device or turning the latch high. In most use cases, the latch GPIO should be turned on as the first task of the Picoclick. Once the task is completed the device can be powered off by turning to the latch off (e.g. pulling it low).
 
+## Board overview (Battery connections)
+
+<img src="docs/pc3t_components_description.png" width="500px"></a>
+
 
 ## Speed up boot process
 
