@@ -87,6 +87,13 @@ Below are some links for those tiny batteries (no sponsor, no affiliate, just fo
 
 <img src="docs/pc3t_battery.JPG" width="450px"></a>
 
+## Flashing adapter with pogopins
+
+In order to flash boards without soldering wires or batteries to the Picoclicks, I decided to print a simple flashing adapter which uses 1mm pogopins to make contact to the battery pads on the board. Just plug in the USB cable, shift the device in, press it down to the pogopins and hit the upload button. Simple overview is given below.
+
+<img src="docs/pc3t_pogo_1.JPG" width="250px"></a>
+<img src="docs/pc3t_pogo_2.JPG" width="250px"></a>
+
 ## Media
 
 Hackster.io article by James Lewis: [Picoclick C3T Is the World's Smallest IoT Button and It Has a RISC-V Processor](https://www.hackster.io/news/picoclick-c3t-is-the-world-s-smallest-iot-button-and-it-has-a-risc-v-processor-7eddb2c14bda?fbclid=IwAR0fc_usR9xU9rvV6_ah3hptwWU2ObRKkqjKUgYzedlxkP4QRlh8Du6uMtc)
