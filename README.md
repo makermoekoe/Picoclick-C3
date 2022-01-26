@@ -38,7 +38,8 @@ Bat Voltage | GPIO4 | GPIOX | Input
 
 ## Flashing firmware to the ESP32
 
-**Press and hold the button during the complete flashing process! Otherwise the ESP32 will be loose power and the upload process will crash!**
+**- Press and hold the button during the complete flashing process! Otherwise the ESP32 will be loose power and the upload process will crash!**
+**- A battery or a power supply has to be applied to the battery pads (3.5v - 5.5v) in order to flash the device!**
 
 Except the above, the Picoclick behaves like a normal development board. No need to get the ESP32 into download mode or pressing any reset button.
 
