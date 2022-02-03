@@ -103,7 +103,7 @@ In order to flash boards without soldering wires or batteries to the Picoclicks,
 
 # FAQ
 
-## My Picoclick doesn't show up on the device list when I plug it in the computer - what can I do?
+## My Picoclick is not shown on the device list when I plug it in the computer - what can I do?
 - Your Picoclick is well tested before shipping, so it is probably not broken. Make sure you have connected a decent power supply to the battery connections (3.5v - 5.5v). Battery polarity is shown above. The USB-C jack is only for charging the battery and to flash the ESP32 - not for powering the device.
 
 ## Media
