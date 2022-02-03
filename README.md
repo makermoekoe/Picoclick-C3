@@ -39,6 +39,7 @@ Bat Voltage | GPIO4 | GPIOX | Input
 ## Flashing firmware to the ESP32
 
 **- Press and hold the button during the complete flashing process! Otherwise the ESP32 will be loose power and the upload process will crash!**
+
 **- A battery or a power supply has to be applied to the battery pads (3.5v - 5.5v) in order to flash the device!**
 
 Except the above, the Picoclick behaves like a normal development board. No need to get the ESP32 into download mode or pressing any reset button.
@@ -99,6 +100,11 @@ In order to flash boards without soldering wires or batteries to the Picoclicks,
 
 <img src="docs/pc3t_pogo_1.JPG" width="250px"></a>
 <img src="docs/pc3t_pogo_2.JPG" width="250px"></a>
+
+## FAQ
+
+# My Picoclick doesn't show up on the device list when I plug it in the computer - what can I do?
+- Your Picoclick is well tested before shipping, so it is probably not broken. Make sure you have connected a decent power supply to the battery connections (3.5v - 5.5v). Battery polarity is shown above. The USB-C jack is only for charging the battery and to flash the ESP32 - not for powering the device.
 
 ## Media
 
