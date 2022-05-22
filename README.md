@@ -101,6 +101,14 @@ In order to flash boards without soldering wires or batteries to the Picoclicks,
 <img src="docs/pc3t_pogo_1.JPG" width="250px"></a>
 <img src="docs/pc3t_pogo_2.JPG" width="250px"></a>
 
+## Cases
+
+### Case 2 (round)
+
+Round design. Combined with two M2x8mm screws.
+
+<img src="docs/pc3t_case2.jpg" width="250px"></a>
+
 # FAQ
 
 ## My Picoclick is not shown on the device list when I plug it in the computer - what can I do?
