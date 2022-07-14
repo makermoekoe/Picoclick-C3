@@ -6,7 +6,8 @@
 
 The Picoclick C3 as well as its little brother (the C3T, T = tiny) are the successors of the well known [Picoclick](https://github.com/makermoekoe/Picoclick). The name is related to its new processor: the [ESP32-C3](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf) single core RISC-V 160MHz CPU.
 
-The Picoclick C3T is a tiny WiFi and BLE IoT button for several applications. Originally designed for smart home things, the Picoclick can also be used as an actuator for IFTTT automations or as an MQTT device. It is based on the single core ESP32-C3 RISC-V processor and therefore comes with tons of useful features. With dimensions of only 10.5mm by 18mm the C3T not only the smallest one in the family of the Picoclicks, it is also the smallest device I have created so far.
+The Picoclick is a tiny WiFi and BLE IoT button for several applications. Originally designed for smart home things, the Picoclick can also be used as an actuator for IFTTT automations or as an MQTT device. It is based on the single core ESP32-C3 RISC-V processor and therefore comes with tons of useful features.
+With dimensions of only 10.5mm by 18mm, the C3T is not only the smallest one in the family of the Picoclicks, it is also the smallest device I have created so far.
 
 The [Youtube video](https://www.youtube.com/watch?v=t-50w3RsUlg) shows the assembly and soldering process, the optimization of the boot up time, the power measurements as well as some useful applications of the Picoclick.
 
@@ -20,6 +21,24 @@ Here are some specs of the Picoclick C3T:
 
 <a href="https://www.tindie.com/stores/makermoekoe/?ref=offsite_badges&utm_source=sellers_makermoekoe&utm_medium=badges&utm_campaign=badge_large"><img src="https://d2ss6ovg47m0r5.cloudfront.net/badges/tindie-larges.png" alt="I sell on Tindie" width="200" height="104"></a>
 
+<<<<<<< Updated upstream
+=======
+## Update 14.07.2022: The Picoclick C3 is alive!
+
+It's a pleasure for me to announce that the Picoclick C3 (the big brother of the C3T) is finally here! It comes with the most advanced features of my latest projects which occupies the following points:
+
+- Optimized idle current: we're below 200nA (!!) current consumption (without battery protection) in idle state! (compared to 3µA for the C3T)
+- Optimized antenna design, which will lead to a better performance and longer range.
+- Optimized power latching circuit, which makes the firmware development easier. (especially with the Arduino IDE)
+- Optimized battery charging circuit with separated status LED.
+- Added second RTC crystal for BLE applications.
+- Added FPC connector for connecting external hardware.
+- Added embedded battery protection.
+- Added boot emergency jumper.
+- Same dimensions as the standard Picoclick.
+- Added a nice "golden" logo ;)
+
+>>>>>>> Stashed changes
 ## GPIOs
 
 Function | GPIO C3T | GPIO C3 | Mode
@@ -36,6 +55,15 @@ Bat Voltage | GPIO4 | GPIOX | Input
 
 <img src="docs/pc3t_components_description.png" width="500px"></a>
 
+<<<<<<< Updated upstream
+=======
+### C3
+
+description coming soon.
+
+<img src="docs/pc3_components_description.png" width="500px"></a>
+
+>>>>>>> Stashed changes
 ## Flashing firmware to the ESP32
 
 **- Press and hold the button during the complete flashing process! Otherwise the ESP32 will be loose power and the upload process will crash!**
@@ -44,6 +72,15 @@ Bat Voltage | GPIO4 | GPIOX | Input
 
 Except the above, the Picoclick behaves like a normal development board. No need to get the ESP32 into download mode or pressing any reset button.
 
+<<<<<<< Updated upstream
+=======
+### C3
+
+As the C3 comes with an optimized power latching circuit, the button doesn't have to be pressed the whole flashing time. But to be recognized from the PC it has to be on while hitting the upload button, else the serial console is not active. Furthermore the C3 doesn't need a connected battery. If you wanna use the Picoclick over USB only, you can short the jumper marked jumper (TODO). Don't connect a battery or an external power supply to the pads if this jumper is shorted, else you would destroy your power source or the Picoclick itself.
+
+Furthermore, as the VBAT pin is available on the FPC connector, the Picoclick C3 can be powered over the extension cable. With the FPC breakout board, the device can thus simply be powered from a breadboard.
+
+>>>>>>> Stashed changes
 ## Speed up boot process
 
 Due to the latching circuit, the button press has to be longer than the boot up time of the processor, because the first task should have been executed once the button is released. For most of the use cases of the Picoclick the first task is to toggle the latch GPIO high in order to enable power hold feature of the Picoclick. If this task haven't been executed before the button is released, the Picoclick is going to standby mode without finishing its main task.
