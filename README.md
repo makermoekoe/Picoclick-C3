@@ -50,13 +50,15 @@ Bat Voltage EN | -- | GPIO3 | Output
 
 *Enabling the LDO can be done by pressing the button of the device or turning the latch high. In most use cases, the latch GPIO should be turned on as the first task of the Picoclick. Once the task is completed the device can be powered off by turning the latch off (e.g. pulling it low).
 
-**The Picoclick C3 doesn't need a latching GPIO because it uses the embedded flash's power supply pin as a reference. It can be depowered with putting the ESP32 in deepsleep. To reduce the power consumption of the ESP32 this function will disable the power of the embedded flash (VDD_SPI) which in result will depower the Picoclick itself. The deepsleep calling function is only necessary to pulling the VDD_SPI line low, not to use the deepsleep mode of the ESP32.
+**The Picoclick C3 doesn't need a latching GPIO because it uses the embedded flash's power supply pin as a reference. It can be depowered with putting the ESP32 in deepsleep. To reduce the power consumption of the ESP32 this function will disable the power of the embedded flash (`VDD_SPI`) which in result will depower the Picoclick itself. The deepsleep calling function is only necessary to pulling the `VDD_SPI` line low, not to use the deepsleep mode of the ESP32.
 
 ### Extension port of the Picoclick C3
 
-The C3 has an FPC extension connector which can be used to power the Picoclick via the `VBAT` pin, actuate the button press and use two pulled-up GPIOs (for I2C for example). Furthermore it leads out `+3V3` and `GND` signal.
+The C3 has an FPC extension connector which can be used to power the Picoclick via the `+VBAT` pin, actuate the button press and use two pulled-up GPIOs (for I2C for example). Furthermore it leads out `+3V3` and `GND` signal. The `+3V3` signal is only active if the device is on.
 
-Pinout coming soon.
+The pinout of the extension port is shown below with both the connector of the breakout board and the connector of the Picoclick facing in the same direction. The FPC connectors are double-sided (contacts both facing up and down), so it will work in the other direction as well, but then the pinout is switched.
+
+<img src="docs/pc3_breakout_pinout.pdf" width="500px"></a>
 
 #### Using I2C
 
@@ -70,7 +72,10 @@ SCL | GPIO8
 #### External button actuator
 
 The external button pin can be used for external switches, door sensors, reed sensors and motion sensors.
-The button signal (pin XX TODO) has to be tied to `VBAT` to actuate a button press.
+The button signal has to be tied to `+VBAT` to actuate a button press.
+
+<img src="docs/pc3_breakout_external_button.pdf" width="500px"></a>
+
 I'm using the Picoclick as an IOT-doorbell, but here an external optocoupler is needed, because my doorbell is running on AC. (Tutorial coming soon)
 
 ## Board overview (Battery connections)
@@ -99,13 +104,7 @@ Except the above, the Picoclick behaves like a normal development board. No need
 
 As the C3 comes with an optimized power latching circuit, the button doesn't have to be pressed the whole flashing time. But to be recognized from the PC it has to be on while hitting the upload button, else the serial console is not active. Furthermore the C3 doesn't need a connected battery. If you wanna use the Picoclick over USB only, you can short the jumper marked jumper (TODO). Don't connect a battery or an external power supply to the pads if this jumper is shorted, else you would destroy your power source or the Picoclick itself.
 
-Furthermore, as the VBAT pin is available on the FPC connector, the Picoclick C3 can be powered over the extension cable. With the FPC breakout board, the device can thus simply be powered from a breadboard.
-
-### C3
-
-As the C3 comes with an optimized power latching circuit, the button doesn't have to be pressed the whole flashing time. But to be recognized from the PC it has to be on while hitting the upload button, else the serial console is not active. Furthermore the C3 doesn't need a connected battery. If you wanna use the Picoclick over USB only, you can short the jumper marked with XXX (TODO) in the TODO corner. Don't connect a battery or an external power supply to the pads if this jumper is shorted, else you would destroy your power source or the Picoclick itself.
-
-Furthermore, as the VBAT pin is available on the FPC connector, the Picoclick C3 can be powered over the extension cable. With the FPC breakout board, the device can thus simply be powered from a breadboard.
+Furthermore, as the `+VBAT` pin is available on the FPC connector, the Picoclick C3 can be powered over the extension cable. With the FPC breakout board, the device can thus simply be powered from a breadboard.
 
 ## Speed up boot process
 
