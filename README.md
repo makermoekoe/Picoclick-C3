@@ -58,7 +58,7 @@ The C3 has an FPC extension connector which can be used to power the Picoclick v
 
 The pinout of the extension port is shown below with both the connector of the breakout board and the connector of the Picoclick facing in the same direction. The FPC connectors are double-sided (contacts both facing up and down), so it will work in the other direction as well, but then the pinout is switched.
 
-<img src="docs/pc3_breakout_pinout.pdf" width="500px"></a>
+<img src="docs/pc3_breakout_pinout.png" width="500px"></a>
 
 #### Using I2C
 
@@ -74,7 +74,7 @@ SCL | GPIO8
 The external button pin can be used for external switches, door sensors, reed sensors and motion sensors.
 The button signal has to be tied to `+VBAT` to actuate a button press.
 
-<img src="docs/pc3_breakout_external_button.pdf" width="500px"></a>
+<img src="docs/pc3_breakout_external_button.png" width="500px"></a>
 
 I'm using the Picoclick as an IOT-doorbell, but here an external optocoupler is needed, because my doorbell is running on AC. (Tutorial coming soon)
 
