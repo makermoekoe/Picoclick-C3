@@ -52,7 +52,7 @@ Bat Voltage EN | -- | GPIO3 | Output
 
 **The Picoclick C3 doesn't need a latching GPIO because it uses the embedded flash's power supply pin as a reference. It can be depowered with putting the ESP32 in deepsleep. To reduce the power consumption of the ESP32 this function will disable the power of the embedded flash (`VDD_SPI`) which in result will depower the Picoclick itself. The deepsleep calling function is only necessary to pulling the `VDD_SPI` line low, not to use the deepsleep mode of the ESP32.
 
-### Extension port of the Picoclick C3
+## Extension port of the Picoclick C3
 
 The C3 has an FPC extension connector which can be used to power the Picoclick via the `+VBAT` pin, actuate the button press and use two pulled-up GPIOs (for I2C for example). Furthermore it leads out `+3V3` and `GND` signal. The `+3V3` signal is only active if the device is on.
 
@@ -60,7 +60,7 @@ The pinout of the extension port is shown below with both the connector of the b
 
 <img src="docs/pc3_breakout_pinout.png" width="500px"></a>
 
-#### Using I2C
+### Using I2C
 
 Both external GPIOs are strapping pins of the ESP32C3 and thus are pulled up on the Picoclick itself (they don't need external I2C pull-ups).
 
@@ -69,7 +69,7 @@ Function | GPIO C3
 SDA | GPIO2
 SCL | GPIO8
 
-#### External button actuator
+### External button actuator
 
 The external button pin can be used for external switches, door sensors, reed sensors and motion sensors.
 The button signal has to be tied to `+VBAT` to actuate a button press.
@@ -77,6 +77,20 @@ The button signal has to be tied to `+VBAT` to actuate a button press.
 <img src="docs/pc3_breakout_external_button.png" width="500px"></a>
 
 I'm using the Picoclick as an IOT-doorbell, but here an external optocoupler is needed, because my doorbell is running on AC. (Tutorial coming soon)
+
+### Extension boards
+
+#### Accelerometer sensor
+
+coming soon.
+
+#### Motion sensor (PIR)
+
+coming soon.
+
+#### Light sensor
+
+coming soon.
 
 ## Board overview (Battery connections)
 
