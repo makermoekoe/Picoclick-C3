@@ -80,17 +80,26 @@ I'm using the Picoclick as an IOT-doorbell, but here an external optocoupler is 
 
 ### Extension boards
 
+The extension boards can be connected to the Picoclick C3 with one of the FPC connection cables. To ensure that the pinout is correct make sure that both connecters (of the extension board and the Picoclick) are facing in the same direction.
+
 #### Accelerometer sensor
 
-coming soon.
+Extension board with the LIS3DH accelerometer sensor. It's interrupt pin can be used to activate the Picoclick. The interrupt pin can be configured to be fired on any motion, a single tap or a double tap. So for examaple the Picoclick can be activate through a double tap.
+
+<img src="docs/ext_board_lis.png" width="500px"></a>
 
 #### Motion sensor (PIR)
 
-coming soon.
+Extension board with the Panasonic EKMB1107112 PIR motion sensor. It's output pin can be used to activate the Picoclick. I've chosen this sensor because it is an ultra low power device - it consumes only 1µA in standby, which is great for battery powered devices like the Picoclick.
+
+<img src="docs/ext_board_pir_top.png" width="250px"></a>
+<img src="docs/ext_board_pir_bot.png" width="250px"></a>
 
 #### Light sensor
 
-coming soon.
+Extension board with the LTR303ALS ambient light sensor. It's interrupt pin can be used to activate the Picoclick. The thresholds can be configured via I2C.
+
+<img src="docs/ext_board_ltr.png" width="500px"></a>
 
 ## Board overview (Battery connections)
 
