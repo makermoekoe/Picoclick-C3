@@ -56,13 +56,13 @@ Bat Voltage EN | -- | GPIO3 | Output
 
 The C3 has an FPC extension connector which can be used to power the Picoclick via the `+VBAT` pin, actuate the button press and use two pulled-up GPIOs (for I2C for example). Furthermore it leads out `+3V3` and `GND` signal. The `+3V3` signal is only active if the device is on.
 
-The pinout of the extension port is shown below with both the connector of the breakout board and the connector of the Picoclick facing in the same direction. The FPC connectors are double-sided (contacts both facing up and down), so it will work in the other direction as well, but then the pinout is switched.
+In order to use the connections of the extension port, I designed a simple breadboard friendly breakout board. The pinout of the breakout board is shown below with both the connector of the breakout board and the Picoclick facing in the same direction. The FPC connectors are double-sided (contacts both facing up and down), so it will work in the other direction as well, but then the pinout is switched.
 
 <img src="docs/pc3_breakout_pinout.png" width="500px"></a>
 
 ### Using I2C
 
-Both external GPIOs are strapping pins of the ESP32C3 and thus are pulled up on the Picoclick itself (they don't need external I2C pull-ups).
+Both external GPIOs are strapping pins of the ESP32C3 and thus are pulled up on the Picoclick itself (they don't need external I2C pull-ups). If you wanna hook up an I2C device which should be turned off during the idle period you can simply use the `+3V3` as a power source. In the other case the `+VBAT` signal can be used with an external voltage regulator. Latter can be useful if you have an I2C device which activates the Picoclick by firing an interrupt  
 
 Function | GPIO C3
 -------- | --------
@@ -71,8 +71,8 @@ SCL | GPIO8
 
 ### External button actuator
 
-The external button pin can be used for external switches, door sensors, reed sensors and motion sensors.
-The button signal has to be tied to `+VBAT` to actuate a button press.
+The button pin can be used for external switches, door sensors, reed sensors and motion sensors.
+The button signal has to be tied to `+VBAT` to actuate a button press of the Picoclick.
 
 <img src="docs/pc3_breakout_external_button.png" width="500px"></a>
 
@@ -80,13 +80,7 @@ I'm using the Picoclick as an IOT-doorbell, but here an external optocoupler is 
 
 ### Extension boards
 
-The extension boards can be connected to the Picoclick C3 with one of the FPC connection cables. To ensure that the pinout is correct make sure that both connecters (of the extension board and the Picoclick) are facing in the same direction.
-
-#### Accelerometer sensor
-
-Extension board with the LIS3DH accelerometer sensor. It's interrupt pin can be used to activate the Picoclick. The interrupt pin can be configured to be fired on any motion, a single tap or a double tap. So for examaple the Picoclick can be activate through a double tap.
-
-<img src="docs/ext_board_lis.png" width="500px"></a>
+The extension boards can be connected to the Picoclick with one of the FPC connection cables. To ensure that the pinout is correct make sure that both connecters (of the extension board and the Picoclick) are facing in the same direction.
 
 #### Motion sensor (PIR)
 
@@ -95,11 +89,17 @@ Extension board with the Panasonic EKMB1107112 PIR motion sensor. It's output pi
 <img src="docs/ext_board_pir_top.png" width="250px"></a>
 <img src="docs/ext_board_pir_bot.png" width="250px"></a>
 
+#### Accelerometer sensor
+
+Extension board with the LIS3DH accelerometer sensor. It's interrupt pin can be used to activate the Picoclick. The interrupt pin can be configured to be fired on any motion, a single tap or a double tap. The LIS3DH is an ultra low power sensor - it only consumes around 2µA in standby.
+
+<img src="docs/ext_board_lis.png" width="250px"></a>
+
 #### Light sensor
 
 Extension board with the LTR303ALS ambient light sensor. It's interrupt pin can be used to activate the Picoclick. The thresholds can be configured via I2C.
 
-<img src="docs/ext_board_ltr.png" width="500px"></a>
+<img src="docs/ext_board_ltr.png" width="250px"></a>
 
 ## Board overview (Battery connections)
 
