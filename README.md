@@ -97,9 +97,15 @@ Extension board with the LIS3DH accelerometer sensor. It's interrupt pin can be 
 
 #### Light sensor
 
-Extension board with the LTR303ALS ambient light sensor. It's interrupt pin can be used to activate the Picoclick. The thresholds can be configured via I2C.
+Extension board with the LTR303ALS ambient light sensor. It's interrupt pin can be used to activate the Picoclick. The thresholds can be configured via I2C. Power consumption coming soon.
 
 <img src="docs/ext_board_ltr.png" width="250px"></a>
+
+#### Proximity sensor
+
+Extension board with the VCNL4040 proximity and light sensor. It's interrupt pin can be used to activate the Picoclick. The thresholds can be configured via I2C. As the interrupt pin is active low there is a mosfet on the board which inverts the int state. Power consumption coming soon.
+
+<img src="docs/ext_board_vcnl.png" width="250px"></a>
 
 ## Board overview (Battery connections)
 
