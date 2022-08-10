@@ -2,7 +2,8 @@
 
 **This page is a work in progress!**
 
-<img src="docs/pc3t_tn.JPG" width="500px"></a>
+<img src="docs/pc3_360_gs_30fps.gif" width="300px"></a>
+<img src="docs/pc3t_tn.JPG" width="300px"></a>
 
 The Picoclick C3 as well as its little brother (the C3T, T = tiny) are the successors of the well known [Picoclick](https://github.com/makermoekoe/Picoclick). The name is related to its new processor: the [ESP32-C3](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf) single core RISC-V 160MHz CPU.
 
@@ -62,7 +63,7 @@ In order to use the connections of the extension port, I designed a simple bread
 
 ### Using I2C
 
-Both external GPIOs are strapping pins of the ESP32C3 and thus are pulled up on the Picoclick itself (they don't need external I2C pull-ups). If you wanna hook up an I2C device which should be turned off during the idle period you can simply use the `+3V3` as a power source. In the other case the `+VBAT` signal can be used with an external voltage regulator. Latter can be useful if you have an I2C device which activates the Picoclick by firing an interrupt  
+Both external GPIOs are strapping pins of the ESP32C3 and thus are pulled up on the Picoclick itself (they don't need external I2C pull-ups). If you wanna hook up an I2C device which should be turned off during the idle period you can simply use the `+3V3` as a power source. In the other case the `+VBAT` signal can be used with an external voltage regulator. Latter can be useful if you have an I2C device which activates the Picoclick by firing an interrupt.
 
 Function | GPIO C3
 -------- | --------
