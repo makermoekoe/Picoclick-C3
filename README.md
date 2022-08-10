@@ -2,8 +2,8 @@
 
 **This page is a work in progress!**
 
-<img src="docs/pc3_360_gs_30fps.gif" height="300px"></a>
-<img src="docs/pc3t_tn.JPG" height="300px"></a>
+<img src="docs/pc3_360_gs_30fps.gif" width="280px"></a>
+<img src="docs/pc3t_tn_2.JPG" width="400px"></a>
 
 The Picoclick C3 as well as its little brother (the C3T, T = tiny) are the successors of the well known [Picoclick](https://github.com/makermoekoe/Picoclick). The name is related to its new processor: the [ESP32-C3](https://www.espressif.com/sites/default/files/documentation/esp32-c3_datasheet_en.pdf) single core RISC-V 160MHz CPU.
 
