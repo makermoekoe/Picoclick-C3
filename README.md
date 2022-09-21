@@ -108,6 +108,28 @@ Extension board with the VCNL4040 proximity and light sensor. It's interrupt pin
 
 <img src="docs/ext_board_vcnl.png" width="250px"></a>
 
+## Battery voltage monitoring
+
+The Picoclick-C3 comes with an optimized battery monitoring feature which won't consume any power while not in use. The C3T needs about 3µA of current even if not in active state.
+
+To read the voltage of the battery you have to pull the `ADC_ENABLE_PIN` low after which the voltage can be read for a few milliseconds. After reading the battery voltage it is useful to go back to a high state of that pin in order to read the voltage again afterwards.
+
+The function below reads the analog pin where the ADC is connected to and returns the filtered (sum of 100 divided by 100) battery voltage in volts.
+
+```
+float get_battery_voltage(){
+  digitalWrite(ADC_ENABLE_PIN, LOW);
+  delayMicroseconds(10);
+  int sum = 0;
+  for(int i=0; i<100; i++){
+    sum = sum + analogRead(ADC_PIN);
+  }
+  float result = sum/100.0;
+  digitalWrite(ADC_ENABLE_PIN, HIGH);
+  return float(result) * (1.42) - 50;
+}
+```
+
 ## Board overview (Battery connections)
 
 ### C3T
