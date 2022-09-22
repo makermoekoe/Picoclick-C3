@@ -108,13 +108,13 @@ Extension board with the VCNL4040 proximity and light sensor. It's interrupt pin
 
 <img src="docs/ext_board_vcnl.png" width="250px"></a>
 
-## Battery voltage monitoring
+## Battery voltage monitoring of the C3
 
 The Picoclick-C3 comes with an optimized battery monitoring feature which won't consume any power while not in use. The C3T needs about 3µA of current even if not in active state.
 
 To read the voltage of the battery you have to pull the `ADC_ENABLE_PIN` low after which the voltage can be read for a few milliseconds. After reading the battery voltage it is useful to go back to a high state of that pin in order to read the voltage again afterwards.
 
-The function below reads the analog pin where the ADC is connected to and returns the filtered (sum of 100 divided by 100) battery voltage in volts.
+The function below reads the analog pin where the ADC is connected to and returns the filtered (sum of 100 divided by 100) battery voltage in volts. In the last row of code the raw analog value will be converted to a voltage value by using a multiplier and a constant linear offset.
 
 ```
 float get_battery_voltage(){
@@ -129,6 +129,14 @@ float get_battery_voltage(){
   return float(result) * (1.42) - 50;
 }
 ```
+
+## Reducing power consumption
+
+In order to reduce the power consumption of the Picoclick the following points can be done:
+
+- Disable WiFi while not in use (e.g. if using LED animations only): `WiFi.mode(WIFI_OFF);`
+- Reducing CPU frequency after WiFi stuff is completed (crystal is 40MHz): `setCpuFrequencyMhz(10); //reduce to 10MHz`
+- Reducing brightness of the LEDs (can be done right after FastLED init): `FastLED.setBrightness(150);`
 
 ## Board overview (Battery connections)
 
