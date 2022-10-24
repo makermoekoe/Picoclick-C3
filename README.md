@@ -1,7 +1,5 @@
 # Picoclick-C3
 
-**This page is a work in progress!**
-
 <img src="docs/pc3_360_gs_30fps.gif" width="300px"></a>
 <img src="docs/pc3t_tn_2.JPG" width="350px"></a>
 
@@ -11,8 +9,6 @@ The Picoclick is a tiny WiFi and BLE IoT button for several applications. Origin
 With dimensions of only 10.5mm by 18mm, the C3T is not only the smallest one in the family of the Picoclicks, it is also the smallest device I have created so far.
 
 The [Youtube video of the C3T](https://www.youtube.com/watch?v=t-50w3RsUlg) shows the assembly and soldering process, the optimization of the boot up time, the power measurements as well as some useful applications of the Picoclick.
-
-As the C3 is in development at the moment, most of the files are related to the C3T so far.
 
 Here are some specs of the Picoclick C3T:
 - Dimensions are only 10.5x18mm
@@ -31,12 +27,14 @@ It's a pleasure for me to announce that the Picoclick C3 (the big brother of the
 - Optimized antenna design, which will lead to a better performance and longer range.
 - Optimized power latching circuit, which makes the firmware development easier. (especially with the Arduino IDE)
 - Optimized battery charging circuit with separated status LED.
-- Added second RTC crystal for BLE applications.
+- Added second RTC crystal.
 - Added FPC connector for connecting external hardware.
 - Added embedded battery protection.
 - Added boot emergency jumper.
 - Same dimensions as the standard Picoclick.
 - Added a nice "golden" logo ;)
+
+### [Main documentation of the Picoclick-C3 can be found here!](https://makermoekoe.gitbook.io/picoclick-c3/)
 
 ## GPIOs
 
@@ -53,83 +51,6 @@ Bat Voltage EN | -- | GPIO3 | Output
 
 **The Picoclick C3 doesn't need a latching GPIO because it uses the embedded flash's power supply pin as a reference. It can be depowered with putting the ESP32 in deepsleep. To reduce the power consumption of the ESP32 this function will disable the power of the embedded flash (`VDD_SPI`) which in result will depower the Picoclick itself. The deepsleep calling function is only necessary to pulling the `VDD_SPI` line low, not to use the deepsleep mode of the ESP32.
 
-## Extension port of the Picoclick C3
-
-The C3 has an FPC extension connector which can be used to power the Picoclick via the `+VBAT` pin, actuate the button press and use two pulled-up GPIOs (for I2C for example). Furthermore it leads out `+3V3` and `GND` signal. The `+3V3` signal is only active if the device is on.
-
-In order to use the connections of the extension port, I designed a simple breadboard friendly breakout board. The pinout of the breakout board is shown below with both the connector of the breakout board and the Picoclick facing in the same direction. The FPC connectors are double-sided (contacts both facing up and down), so it will work in the other direction as well, but then the pinout is switched.
-
-<img src="docs/pc3_breakout_pinout.png" width="500px"></a>
-
-### Using I2C
-
-Both external GPIOs are strapping pins of the ESP32C3 and thus are pulled up on the Picoclick itself (they don't need external I2C pull-ups). If you wanna hook up an I2C device which should be turned off during the idle period you can simply use the `+3V3` as a power source. In the other case the `+VBAT` signal can be used with an external voltage regulator. Latter can be useful if you have an I2C device which activates the Picoclick by firing an interrupt.
-
-Function | GPIO C3
--------- | --------
-SDA | GPIO2
-SCL | GPIO8
-
-### External button actuator
-
-The button pin can be used for external switches, door sensors, reed sensors and motion sensors.
-The button signal has to be tied to `+VBAT` to actuate a button press of the Picoclick.
-
-<img src="docs/pc3_breakout_external_button.png" width="500px"></a>
-
-I'm using the Picoclick as an IOT-doorbell, but here an external optocoupler is needed, because my doorbell is running on AC. (Tutorial coming soon)
-
-### Extension boards
-
-The extension boards can be connected to the Picoclick with one of the FPC connection cables. To ensure that the pinout is correct make sure that both connecters (of the extension board and the Picoclick) are facing in the same direction.
-
-#### Motion sensor (PIR)
-
-Extension board with the Panasonic EKMB1107112 PIR motion sensor. It's output pin can be used to activate the Picoclick. I've chosen this sensor because it is an ultra low power device - it consumes only 1µA in standby, which is great for battery powered devices like the Picoclick.
-
-<img src="docs/ext_board_pir_top.png" width="250px"></a>
-<img src="docs/ext_board_pir_bot.png" width="250px"></a>
-
-#### Accelerometer sensor
-
-Extension board with the LIS3DH accelerometer sensor. It's interrupt pin can be used to activate the Picoclick. The interrupt pin can be configured to be fired on any motion, a single tap or a double tap. The LIS3DH is an ultra low power sensor - it only consumes around 2µA in standby.
-
-<img src="docs/ext_board_lis.png" width="250px"></a>
-
-#### Light sensor
-
-Extension board with the LTR303ALS ambient light sensor. It's interrupt pin can be used to activate the Picoclick. The thresholds can be configured via I2C. Power consumption coming soon.
-
-<img src="docs/ext_board_ltr.png" width="250px"></a>
-
-#### Proximity sensor
-
-Extension board with the VCNL4040 proximity and light sensor. It's interrupt pin can be used to activate the Picoclick. The thresholds can be configured via I2C. As the interrupt pin is active low there is a mosfet on the board which inverts the int state. Power consumption coming soon.
-
-<img src="docs/ext_board_vcnl.png" width="250px"></a>
-
-## Battery voltage monitoring of the C3
-
-The Picoclick-C3 comes with an optimized battery monitoring feature which won't consume any power while not in use. The C3T needs about 3µA of current even if not in active state.
-
-To read the voltage of the battery you have to pull the `ADC_ENABLE_PIN` low after which the voltage can be read for a few milliseconds. After reading the battery voltage it is useful to go back to a high state of that pin in order to read the voltage again afterwards.
-
-The function below reads the analog pin where the ADC is connected to and returns the filtered (sum of 100 divided by 100) battery voltage in volts. In the last row of code the raw analog value will be converted to a voltage value by using a multiplier and a constant linear offset.
-
-```
-float get_battery_voltage(){
-  digitalWrite(ADC_ENABLE_PIN, LOW);
-  delayMicroseconds(10);
-  int sum = 0;
-  for(int i=0; i<100; i++){
-    sum = sum + analogRead(ADC_PIN);
-  }
-  float result = sum/100.0;
-  digitalWrite(ADC_ENABLE_PIN, HIGH);
-  return float(result) * (1.42) - 50;
-}
-```
-
 ## Reducing power consumption
 
 In order to reduce the power consumption of the Picoclick the following points can be done:
@@ -138,33 +59,18 @@ In order to reduce the power consumption of the Picoclick the following points c
 - Reducing CPU frequency after WiFi stuff is completed (crystal is 40MHz): `setCpuFrequencyMhz(10); //reduce to 10MHz`
 - Reducing brightness of the LEDs (can be done right after FastLED init): `FastLED.setBrightness(150);`
 
-## Board overview (Battery connections)
-
-### C3T
+## Board overview C3T (Battery connections)
 
 <img src="docs/pc3t_components_description.png" width="500px"></a>
 
-### C3
 
-component description following.
-
-<img src="docs/pc3_components_description.png" width="500px"></a>
-
-## Flashing firmware to the ESP32
-
-### C3T
+## Flashing firmware to the ESP32 (C3T)
 
 **- Press and hold the button during the complete flashing process! Otherwise the ESP32 will be loose power and the upload process will crash!**
 
 **- A battery or a power supply has to be applied to the battery pads (3.5v - 5.5v) in order to flash the device!**
 
 Except the above, the Picoclick behaves like a normal development board. No need to get the ESP32 into download mode or pressing any reset button.
-
-### C3
-
-As the C3 comes with an optimized power latching circuit, the button doesn't have to be pressed the whole flashing time. But to be recognized from the PC it has to be on while hitting the upload button, else the serial console is not active. Furthermore the C3 doesn't need a connected battery. If you wanna use the Picoclick over USB only, you can short the jumper marked jumper (TODO). Don't connect a battery or an external power supply to the pads if this jumper is shorted, else you would destroy your power source or the Picoclick itself.
-
-Furthermore, as the `+VBAT` pin is available on the FPC connector, the Picoclick C3 can be powered over the extension cable. With the FPC breakout board, the device can thus simply be powered from a breadboard.
 
 ## Speed up boot process
 
@@ -182,9 +88,7 @@ Things I have done so far:
 
 These points result in a boot up time of around 68ms which is almost quite fantastic. The test I've done so far were quite sufficient. If it is possible to make it even faster or if you have other ideas which could lead into the right direction then please let me know!
 
-## Power consumption
-
-### C3T
+## Power consumption C3T
 
 These power measurements are done with the Otii Arc power analyzer and its dedicated software. The average and peak current can be seen in the top right corner and is based on the selected frame in the current graph.
 The Picoclick C3T is used as an ESP-NOW slave in this case, which is probably the fastest solution of any wireless connection.
@@ -204,10 +108,6 @@ As already said, the rest is just visualization stuff which will use 22mA of cur
 Probably the most interesting part is the standby current, because it's the most used state of the Picoclick. As the device doesn't use any sleep mode, we're getting as low as 3µA in this state. This is only related to the battery monitoring feature. As the voltage divider between ```Vbat``` and ```GND``` is ```1MOhm + 250kOhm = 1.25MOhm``` the current flow through it is about 3µA.
 
 <img src="docs/pc3t_pc_espnow_standby.png" width="450px"></a>
-
-### C3
-
-coming soon.
 
 ## Battery for the Picoclick
 
@@ -232,30 +132,18 @@ As the Picoclick C3 comes with an embedded battery protection, the protection of
 
 [Aliexpress 401010](https://de.aliexpress.com/item/1005004324462178.html)
 
-## Flashing adapter with pogopins
-
-### C3T
+## Flashing adapter with pogopins for the C3T
 
 In order to flash boards without soldering wires or batteries to the Picoclick, I decided to print a simple flashing adapter which uses 1mm pogopins to make contact to the battery pads on the board. Just plug in the USB cable, shift the device in, press it down to the pogopins and hit the upload button. Simple overview is given below.
 
 <img src="docs/pc3t_pogo_1.JPG" width="250px"></a>
 <img src="docs/pc3t_pogo_2.JPG" width="250px"></a>
 
-### C3
-
-Needless because the Picoclick C3 can be powered over the extension cable.
-
-## Cases
-
-### Case 2 (round) for the C3T
+## Cases for the C3T
 
 Round design. Combined with two M2x8mm screws.
 
 <img src="docs/pc3t_case2.jpg" width="250px"></a>
-
-### Cases C3
-
-coming soon.
 
 # FAQ
 
